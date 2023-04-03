@@ -1,0 +1,54 @@
+<section class="vh-75 gradient-custom">
+  <div class="container py-1 h-100">
+    <div class="search-hero">
+      <input
+        class="form-control"
+        type="text"
+        name="search"
+        [(ngModel)]="searchText"
+        placeholder="Start searching"
+        (ngModelChange)="searchData($event)"
+      />
+    </div>
+    <div>
+      <button type="submit" class="btn" (click)="applyFilter()">
+        Apply filter
+      </button>
+    </div>
+    <p-table
+      #myTab
+      [globalFilterFields]="['firstName', 'email', 'empId']"
+      [scrollable]="true"
+      [value]="data"
+    >
+      <ng-template pTemplate="caption">
+        <div style="text-align: left" *ngIf="selectedItem">
+          <input
+            type="text"
+            pInputText
+            size="50"
+            placeholder="Filter by 'firstName', 'email', 'empId'"
+            (input)="myTab.filterGlobal($any($event.target).value, 'contains')"
+            style="width: auto"
+          />
+        </div>
+      </ng-template>
+      <ng-template pTemplate="header">
+        <tr>
+          <th *ngFor="let c of col">
+            {{ c.label }}
+          </th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-pro>
+        <tr>
+          <ng-container *ngFor="let c of col">
+            <td>
+              {{ pro[c.field] }}
+            </td>
+          </ng-container>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</section>

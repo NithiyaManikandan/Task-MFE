@@ -1,0 +1,193 @@
+<section class="vh-75 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div
+          class="card shadow-2-strong card-registration"
+          style="border-radius: 15px"
+        >
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Employee Form</h3>
+            <form
+              [formGroup]="employeeForm"
+              (ngSubmit)="submitForm(employeeForm)"
+            >
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="empId">Employee Id</label>
+                    <input
+                      type="text"
+                      placeholder="Enter Employee Id"
+                      formControlName="empId"
+                      class="form-control"
+                      name="empId"
+                    />
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      employeeForm.controls['empId'].dirty ||
+                      employeeForm.controls['empId'].touched
+                    "
+                  >
+                    <span
+                      class="text-danger"
+                      *ngIf="employeeForm.controls['empId'].errors"
+                      >Enter Employee Id (eg:9876)</span
+                    >
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="firstName">First Name</label>
+                    <input
+                      type="text"
+                      placeholder="Enter username"
+                      formControlName="firstName"
+                      class="form-control"
+                      name="firstName"
+                      required
+                    />
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      employeeForm.controls['firstName'].dirty ||
+                      employeeForm.controls['firstName'].touched
+                    "
+                  >
+                    <span
+                      class="text-danger"
+                      *ngIf="employeeForm.controls['firstName'].errors"
+                      >Enter Employee FirstName (eg:Nithiya)</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <label class="form-label" for="lastName">Last Name</label
+                    ><br />
+                    <input
+                      type="text"
+                      placeholder="Enter username"
+                      formControlName="lastName"
+                      class="form-control"
+                      name="lastName"
+                      required
+                    />
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      employeeForm.controls['lastName'].dirty ||
+                      employeeForm.controls['lastName'].touched
+                    "
+                  >
+                    <span
+                      class="text-danger"
+                      *ngIf="employeeForm.controls['lastName'].errors"
+                      >Enter Employee LastName (eg:Mani)</span
+                    >
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <label class="form-label" for="mobile">Mobile</label>
+                    <input
+                      type="number"
+                      placeholder="Enter username"
+                      formControlName="mobile"
+                      class="form-control"
+                      name="mobile"
+                      required
+                    />
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      employeeForm.controls['mobile'].dirty ||
+                      employeeForm.controls['mobile'].touched
+                    "
+                  >
+                    <span
+                      class="text-danger"
+                      *ngIf="employeeForm.controls['mobile'].errors"
+                      >Enter Mobile Number (eg:9876543210)</span
+                    >
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <label class="form-label" for="email">Email</label><br />
+                    <input
+                      type="email"
+                      placeholder="Enter username"
+                      formControlName="email"
+                      class="form-control"
+                      name="email"
+                      required
+                    />
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      employeeForm.controls['email'].dirty ||
+                      employeeForm.controls['email'].touched
+                    "
+                  >
+                    <span
+                      class="text-danger"
+                      *ngIf="employeeForm.controls['email'].errors"
+                      >Enter Email (eg:nithiya@gmail.com)</span
+                    >
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <label class="form-label" for="address">Address</label
+                    ><br />
+                    <input
+                      type="text"
+                      placeholder="Enter username"
+                      formControlName="address"
+                      class="form-control"
+                      name="address"
+                      required
+                    />
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      employeeForm.controls['address'].dirty ||
+                      employeeForm.controls['address'].touched
+                    "
+                  >
+                    <span
+                      class="text-danger"
+                      *ngIf="employeeForm.controls['address'].errors"
+                      >Enter Address (eg:xxxxx)</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-2">
+                <div class="mt-4 pt-2">
+                  <button
+                    type="submit"
+                    class="btn"
+                    [disabled]="employeeForm.invalid"
+                  >
+                    submit
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

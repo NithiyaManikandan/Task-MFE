@@ -1,0 +1,13 @@
+<div class="container py-5 h-100">
+  <button type="button" class="btn" (click)="addProject()">Project</button
+  >&nbsp;
+  <button type="button" class="btn" (click)="assignProject()">
+    Assign Project
+  </button>
+</div>
+<app-add-project
+  *ngIf="addProjectOption && !assignProjectOption"
+></app-add-project>
+<app-assign-project
+  *ngIf="assignProjectOption && !addProjectOption"
+></app-assign-project>

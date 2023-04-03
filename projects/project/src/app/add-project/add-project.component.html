@@ -1,0 +1,110 @@
+<section class="vh-75 gradient-custom">
+  <div class="container py-3 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div
+          class="card shadow-2-strong card-registration"
+          style="border-radius: 15px"
+        >
+          <div class="card-body p-4 p-md-5">
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add Project</h3>
+            <form
+              [formGroup]="projectForm"
+              (ngSubmit)="submitForm(projectForm)"
+            >
+              <div class="row">
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="projectId">Project Id</label>
+                    <input
+                      type="text"
+                      placeholder="Enter Employee Id"
+                      formControlName="projectId"
+                      class="form-control"
+                      name="projectId"
+                    />
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      projectForm.controls['projectId'].dirty ||
+                      projectForm.controls['projectId'].touched
+                    "
+                  >
+                    <span
+                      class="text-danger"
+                      *ngIf="projectForm.controls['projectId'].errors"
+                      >Enter Project Id (eg:MFE9876)</span
+                    >
+                  </div>
+                </div>
+                <div class="col-md-6 mb-4">
+                  <div class="form-outline">
+                    <label class="form-label" for="projectName"
+                      >ProjectName Name</label
+                    >
+                    <input
+                      type="text"
+                      placeholder="Enter projectName"
+                      formControlName="projectName"
+                      class="form-control"
+                      name="projectName"
+                      required
+                    />
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      projectForm.controls['projectName'].dirty ||
+                      projectForm.controls['projectName'].touched
+                    "
+                  >
+                    <span
+                      class="text-danger"
+                      *ngIf="projectForm.controls['projectName'].errors"
+                      >Enter Project Name (eg:MicroFrontEnd)</span
+                    >
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-6 mb-4 pb-2">
+                  <div class="form-outline">
+                    <label class="form-label" for="description"
+                      >Description</label
+                    ><br />
+                    <textarea
+                      cols="64"
+                      rows="4"
+                      class="tesxt-area"
+                      formControlName="description"
+                    ></textarea>
+                  </div>
+                  <div
+                    class="text-danger"
+                    *ngIf="
+                      projectForm.controls['description'].invalid &&
+                      (projectForm.controls['description'].dirty ||
+                        projectForm.controls['description'].touched)
+                    "
+                  >
+                    Enter Project Description
+                  </div>
+                </div>
+              </div>
+              <div class="mt-4 pt-2">
+                <button
+                  type="submit"
+                  class="btn"
+                  [disabled]="projectForm.invalid"
+                >
+                  Add
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

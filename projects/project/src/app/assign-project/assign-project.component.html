@@ -1,0 +1,67 @@
+<section class="vh-75 gradient-custom">
+  <div class="container py-3 h-100">
+    <div class="row justify-content-center align-items-center h-100">
+      <div class="col-12 col-lg-9 col-xl-7">
+        <div
+          class="card shadow-2-strong card-registration"
+          style="border-radius: 15px"
+        >
+          <div class="card-body p-4 p-md-5">
+            <form [formGroup]="ProjectForm" (ngSubmit)="onSubmit()">
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Assign Project</h3>
+              <div class="col-md-6 mb-4 pb-2">
+                <div class="form-outline">
+                  <label class="form-label" for="address">Employee ID</label
+                  ><br />
+                  <select class="form-control" formControlName="empId" id="orders">
+                    <option  value="select" selected="">choose option</option>
+                    <option *ngFor="let data of employee; let i = index">
+                      {{ data.empId }}
+                    </option>
+                  </select>
+                </div>
+                <!-- <div
+                  class="text-danger"
+                  *ngIf="
+                    form.controls['empId'].invalid &&
+                    (form.controls['empId'].dirty ||
+                      form.controls['empId'].touched)
+                  "
+                >
+                  Select Employee Id -->
+                <!-- </div> -->
+              </div>
+              <div class="col-md-6 mb-4 pb-2">
+                <div class="form-outline">
+                  <label class="form-label" for="address">Project ID</label
+                  ><br />
+                  <select class="form-control" formControlName="projectId" id="orders">
+                    <option>choose option</option>
+                    <option *ngFor="let data of project; let i = index">
+                      {{ data.projectId }}
+                    </option>
+                  </select>
+                </div>
+                <!-- <div
+                  class="text-danger"
+                  *ngIf="
+                    form.controls['projectId'].invalid &&
+                    (form.controls['projectId'].dirty ||
+                      form.controls['projectId'].touched)
+                  "
+                >
+                  Select Project Id
+                </div> -->
+              </div>
+              <div class="mt-4 pt-2">
+                <button type="submit" class="btn" [disabled]="ProjectForm.invalid">
+                  Add
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

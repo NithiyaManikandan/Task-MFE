@@ -1,5 +1,5 @@
-export const mockResponse = {
-  employee: [
+export const expectedValue = [
+  [
     {
       empId: '9876',
       firstName: 'Nithiya',
@@ -7,7 +7,6 @@ export const mockResponse = {
       email: 'nithiya@gmail.com',
       mobile: 9876543210,
       address: 'xxxxxx',
-      id: 1,
     },
     {
       empId: '9874',
@@ -16,7 +15,6 @@ export const mockResponse = {
       email: 'kavi@gmail.com',
       mobile: 6383800828,
       address: 'ndkncljcpq',
-      id: 2,
     },
     {
       empId: '1234',
@@ -25,7 +23,6 @@ export const mockResponse = {
       email: 'sanju@gmail.com',
       mobile: 8769543210,
       address: 'Southkorea',
-      id: 3,
     },
     {
       empId: '8765',
@@ -34,7 +31,6 @@ export const mockResponse = {
       email: 'kavya@gmail.com',
       mobile: 6789054321,
       address: 'Coimbatore',
-      id: 4,
     },
     {
       empId: '1997',
@@ -43,10 +39,9 @@ export const mockResponse = {
       email: 'btsjk@gmail.com',
       mobile: 6383638047,
       address: 'SouthKorea',
-      id: 5,
     },
   ],
-};
+];
 
 export const columnResponse = {
   column: [
@@ -103,9 +98,9 @@ export const projectData = {
   ],
 };
 
-export const addPostData = [
+export const data = [
   {
-    data: [
+    employee: [
       {
         empId: '9876',
         firstName: 'Nithiya',
@@ -152,6 +147,8 @@ export const addPostData = [
         id: 5,
       },
     ],
+  },
+  {
     project: [
       {
         projectId: 'MFE9876',

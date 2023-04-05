@@ -51,9 +51,7 @@ export class FormComponent implements OnInit {
   }
 
   submitForm() {
-    console.log(this.employeeForm.value);
-    this.employeeService
-      .postEmployeeDetail(this.employeeForm.value)
+    this.employeeService.postEmployeeDetail(this.employeeForm.value)
       .subscribe();
   }
 }

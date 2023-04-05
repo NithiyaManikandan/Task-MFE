@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,9 @@ import { ProjectDashboardComponent } from './project-dashboard/project-dashboard
 import { AssignProjectComponent } from './assign-project/assign-project.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { postReducer } from 'projects/project/Ngrx/state/reducer';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreModule } from '@ngrx/store';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +23,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    StoreModule.forRoot({data : postReducer}),
+    StoreDevtoolsModule.instrument({ logOnly: !isDevMode() }),
   ],
   providers: [],
   bootstrap: [AppComponent],

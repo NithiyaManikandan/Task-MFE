@@ -1,8 +1,9 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { mockResponse ,columnResponse} from '../../../../response';
+import { expectedValue ,columnResponse} from '../../../../response';
 import { EmployeeService } from './employee.service';
 import { of } from 'rxjs';
+
 describe('EmployeeService', () => {
   let service: EmployeeService;
   let httpClient: HttpClient;
@@ -24,13 +25,13 @@ describe('EmployeeService', () => {
       mobile: 9876543210,
       address: 'xxxxxx',
     };
-    spyOn(httpClient, 'post').and.returnValue(of(mockResponse));
+    spyOn(httpClient, 'post').and.returnValue(of(expectedValue));
     service.postEmployeeDetail(data).subscribe();
     expect(httpClient.post).toHaveBeenCalled();
   });
 
   it('should be call getAllEmployeeDetails', () => {
-    spyOn(httpClient, 'get').and.returnValue(of(mockResponse));
+    spyOn(httpClient, 'get').and.returnValue(of(expectedValue));
     service.getAllEmployeeDetails().subscribe();
     expect(httpClient.get).toHaveBeenCalled();
   });
@@ -50,8 +51,7 @@ describe('EmployeeService', () => {
       mobile: 9876543210,
       address: 'xxxxxx',
     }]
-    const search = 'ka'
-
+    const search = 'Ni'
     spyOn(httpClient, 'get').and.returnValue(of(data));
     service.searchData(search).subscribe();
     expect(httpClient.get).toHaveBeenCalled();

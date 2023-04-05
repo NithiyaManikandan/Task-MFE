@@ -1,7 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Column, Employee } from '../../../../project/Ngrx/models/model';
 import { EmployeeService } from '../service/employee.service';
-
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -16,7 +15,7 @@ export class TableComponent implements OnInit {
 
   ngOnInit() {
     this.employeeService.getAllEmployeeDetails().subscribe((res) => {
-      this.data = res;
+      this.data = res as Employee[];
     });
     this.employeeService.getTableColumn().subscribe((res) => {
       this.col = res
@@ -33,3 +32,4 @@ export class TableComponent implements OnInit {
     this.selectedItem = !this.selectedItem;
   }
 }
+

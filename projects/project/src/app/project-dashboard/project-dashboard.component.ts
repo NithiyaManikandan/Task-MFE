@@ -1,11 +1,10 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { EmployeeService } from 'projects/employee/src/app/service/employee.service';
-import { Data } from 'projects/Ngrx/state/employee.state';
+import { Data } from  '../../../Ngrx/state/state'
 import { ProjectServiceService } from '../../service/project-service.service';
 import { forkJoin, map } from 'rxjs';
-import { addPost } from 'projects/Ngrx/state/employee.action';
-import { Employee, Project } from 'projects/project/Ngrx/models/model';
+import { addPost } from '../../../Ngrx/state/action';
 @Component({
   selector: 'app-project-dashboard',
   templateUrl: './project-dashboard.component.html',

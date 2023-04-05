@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Employee } from 'projects/project/Ngrx/models/model';
 import { Observable, Subject } from 'rxjs';
 import { ProjectServiceService } from '../../service/project-service.service';
 @Component({
@@ -17,20 +18,21 @@ export class AssignProjectComponent implements OnInit {
     private store: Store<any>,
     public fb: FormBuilder,
     private projectService: ProjectServiceService,
-    private route : Router
+    private route: Router
   ) {}
   ProjectForm = this.fb.group({
     empId: ['', [Validators.required]],
     projectId: ['', [Validators.required]],
   });
   ngOnInit(): void {
-    this.store.select('data').subscribe((res) => (this.dataValue = res));
-    this.employee = Object.values(this.dataValue.data[0].employee);
-    this.project = Object.values(this.dataValue.data[1].project);
+    this.store.select('data').subscribe((res) => {
+      this.employee = Object.values(res.data[0].employee);
+      this.project = Object.values(res.data[1].project);
+    });
   }
 
   onSubmit() {
     this.projectService.postAssignedProject(this.ProjectForm.value).subscribe();
-    this.route.navigateByUrl('')
+    this.route.navigateByUrl('');
   }
 }

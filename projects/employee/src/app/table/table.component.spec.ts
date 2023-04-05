@@ -1,39 +1,79 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { EmployeeService } from '../service/employee.service';
-import { columnResponse, mockResponse } from '../../../../response';
+import { columnResponse, expectedValue } from '../../../../response';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { Observable, of } from 'rxjs';
+import { of } from 'rxjs';
 import { TableComponent } from './table.component';
 import { TableModule } from 'primeng/table';
-import { Column, Employee } from 'projects/project/Ngrx/models/model';
+import { FormsModule } from '@angular/forms';
+
 
 describe('EmployeeTableComponent', () => {
   let component: TableComponent;
   let fixture: ComponentFixture<TableComponent>;
-  let httpClientSpy: jasmine.SpyObj<HttpClient>;
-  let service: EmployeeService;
   let fakeService: EmployeeService;
 
   beforeEach(async () => {
+
+    const employeeServiceMock = {
+      getAllEmployeeDetails: () => of([expectedValue]),
+      getTableColumn: () => of([columnResponse]),
+      searchData: (searchTerm: string) => {
+        let filteredData = [expectedValue].filter((employee) =>
+          employee.toString().includes(searchTerm.toLowerCase())
+        );
+        filteredData = filteredData.filter(
+          (item, index) => filteredData.indexOf(item) === index
+        );
+        return of(filteredData);
+      },
+    };
+
     await TestBed.configureTestingModule({
       declarations: [TableComponent],
-      imports: [HttpClientTestingModule, HttpClientModule, TableModule],
-      providers: [{ provide: EmployeeService, useValue: fakeService }],
+      imports: [
+        HttpClientTestingModule,
+        HttpClientModule,
+        TableModule,
+        FormsModule,
+      ],
+      providers: [{ provide: EmployeeService, useValue: employeeServiceMock }],
     }).compileComponents();
 
-    httpClientSpy = TestBed.inject(HttpClient) as jasmine.SpyObj<HttpClient>;
-    service = TestBed.inject(EmployeeService);
 
+    fakeService = TestBed.inject(EmployeeService);
     fixture = TestBed.createComponent(TableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
 
-  it('should call searchData', () => {
-    spyOn(component,'applyFilter').and.callThrough()
-    component.applyFilter()
-    expect(component.applyFilter()).toHaveBeenCalled()
+  it('should call getAllEmployeeDetails and getTableColumn', () => {
+    component.ngOnInit();
+    let spy1 = spyOn(fakeService, 'getAllEmployeeDetails').and.returnValue(
+      of(expectedValue)
+    );
+    fakeService.getAllEmployeeDetails().subscribe();
+    expect(spy1).toHaveBeenCalled();
+    let spy2 = spyOn(fakeService, 'getTableColumn').and.returnValue(
+      of(columnResponse as any)
+    );
+    fakeService.getTableColumn().subscribe();
+    expect(spy2).toHaveBeenCalled();
   });
 
+  it('should call searchData', async () => {
+    fixture.detectChanges();
+    await fixture.whenStable();
+    component.searchEmployeeData('j');
+    fixture.detectChanges();
+    await fixture.whenStable();
+    expect(component.data[0]).toEqual(expectedValue as any);
+  });
+
+  it('should call applyFilter', () => {
+    component.selectedItem = false;
+    component.applyFilter();
+    expect(component.selectedItem).toBe(true);
+  });
 });

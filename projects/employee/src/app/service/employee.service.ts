@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Column, Employee } from 'projects/project/Ngrx/models/model';
+import { Column, Employee } from '../../../../project/Ngrx/models/model';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -18,7 +18,7 @@ export class EmployeeService {
   }
 
   getAllEmployeeDetails() {
-    return this.http.get<Employee[]>(`http://localhost:3000/data`);
+    return this.http.get(`http://localhost:3000/data`);
   }
 
   getTableColumn() {

@@ -4,13 +4,6 @@ import { AssignProjectComponent } from './assign-project/assign-project.componen
 import { ProjectDashboardComponent } from './project-dashboard/project-dashboard.component';
 
 const routes: Routes = [
-  // {
-  //   path: 'createProject',
-  //   loadChildren: () =>
-  //     import('employee/EmployeeFeatureModule').then(
-  //       (m) => m.EmployeeFeatureModule
-  //     ),
-  // },
   {
     path:'',
     component:ProjectDashboardComponent

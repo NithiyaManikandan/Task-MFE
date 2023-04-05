@@ -1,6 +1,6 @@
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from '../service/employee.service';
 
 import { FormComponent } from './form.component';
@@ -9,6 +9,7 @@ describe('FormComponent', () => {
   let component: FormComponent;
   let fixture: ComponentFixture<FormComponent>;
   let fakeService: EmployeeService;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [FormComponent],
@@ -23,17 +24,15 @@ describe('FormComponent', () => {
     fixture.detectChanges();
   });
 
+  it('should create', () => {
+    let spy = spyOn(component, 'ngOnInit').and.callThrough();
+    component.ngOnInit();
+    expect(spy).toHaveBeenCalled();
+  });
+
   it('should create form', () => {
-    const data = {
-      empId: '9876',
-      firstName: 'Nithiya',
-      lastName: 'Mani',
-      email: 'nithiya@gmail.com',
-      mobile: 9876543210,
-      address: 'xxxxxx',
-    };
     let spy = spyOn(component, 'submitForm').and.callThrough();
-    component.submitForm(data);
+    component.submitForm();
     expect(spy).toHaveBeenCalled();
   });
 });

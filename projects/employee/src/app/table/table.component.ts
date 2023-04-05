@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Column, Employee } from '../../../../Ngrx/models/employee.model';
+import { Column, Employee } from '../../../../project/Ngrx/models/model';
 import { EmployeeService } from '../service/employee.service';
 
 @Component({
@@ -13,17 +13,19 @@ export class TableComponent implements OnInit {
   selectedItem: boolean = false;
   searchText: any;
   constructor(private employeeService: EmployeeService) {}
-  ngOnInit(): void {
+
+  ngOnInit() {
     this.employeeService.getAllEmployeeDetails().subscribe((res) => {
-      this.data = res as Employee[];
+      this.data = res;
     });
     this.employeeService.getTableColumn().subscribe((res) => {
-      this.col = res as Column[];
+      this.col = res
     });
   }
-  searchData($event: any) {
+
+  searchEmployeeData($event: any) {
     this.employeeService.searchData($event).subscribe((res) => {
-      this.data = res as unknown as Employee[];
+      this.data = res as Employee[];
     });
   }
 

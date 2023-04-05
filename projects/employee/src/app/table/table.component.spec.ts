@@ -1,9 +1,12 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { EmployeeService } from '../service/employee.service';
-import { columnResponse, mockResponse } from '../service/response';
-import { of } from 'rxjs';
+import { columnResponse, mockResponse } from '../../../../response';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { Observable, of } from 'rxjs';
 import { TableComponent } from './table.component';
+import { TableModule } from 'primeng/table';
+import { Column, Employee } from 'projects/project/Ngrx/models/model';
 
 describe('EmployeeTableComponent', () => {
   let component: TableComponent;
@@ -11,13 +14,13 @@ describe('EmployeeTableComponent', () => {
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
   let service: EmployeeService;
   let fakeService: EmployeeService;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TableComponent ],
-      imports: [HttpClientModule],
+      declarations: [TableComponent],
+      imports: [HttpClientTestingModule, HttpClientModule, TableModule],
       providers: [{ provide: EmployeeService, useValue: fakeService }],
-    })
-    .compileComponents();
+    }).compileComponents();
 
     httpClientSpy = TestBed.inject(HttpClient) as jasmine.SpyObj<HttpClient>;
     service = TestBed.inject(EmployeeService);
@@ -27,13 +30,10 @@ describe('EmployeeTableComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create getAllEmployeeDetails', () => {
-    // let spy1 = spyOn(service, 'getAllEmployeeDetails').and.returnValue(of(mockResponse));
-    // let spy2= spyOn(service, 'getTableColumn').and.returnValue(of(columnResponse));
-    // service.getAllEmployeeDetails().subscribe()
-    // service.getTableColumn().subscribe()
-    // expect(spy1).toHaveBeenCalled();
-    // expect(spy2).toHaveBeenCalled();
-
+  it('should call searchData', () => {
+    spyOn(component,'applyFilter').and.callThrough()
+    component.applyFilter()
+    expect(component.applyFilter()).toHaveBeenCalled()
   });
+
 });

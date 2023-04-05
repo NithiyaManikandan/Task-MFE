@@ -50,11 +50,10 @@ export class FormComponent implements OnInit {
     });
   }
 
-  submitForm(form: any) {
+  submitForm() {
     console.log(this.employeeForm.value);
     this.employeeService
       .postEmployeeDetail(this.employeeForm.value)
       .subscribe();
-    form.reset();
   }
 }

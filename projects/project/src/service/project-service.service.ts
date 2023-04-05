@@ -8,7 +8,7 @@ import { FormGroup } from '@angular/forms';
 export class ProjectServiceService {
   constructor(private http: HttpClient) {}
 
-  postProjectData(projectData: FormGroup) {
+  postProjectData(projectData: any) {
     return this.http.post(`http://localhost:3000/project`, projectData);
   }
 

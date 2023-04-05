@@ -1,6 +1,6 @@
-import { Employee, Project } from '../models/employee.model';
+import { Employee, Project } from '../models/model';
 import { createAction, props } from '@ngrx/store';
-import { Data } from './employee.state';
+import { Data } from './state';
 
 // export const GET_ALL_EMPLOYEE = 'Get all employee detail';
 // export const GET_ALL_EMPLOYEE_SUCCESS = 'Get all employee detail success';

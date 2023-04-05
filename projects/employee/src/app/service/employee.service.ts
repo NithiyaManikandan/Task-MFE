@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Column, Employee } from 'projects/project/Ngrx/models/model';
 import { map } from 'rxjs';
 
 @Injectable({
@@ -11,26 +11,26 @@ export class EmployeeService {
   constructor(private http: HttpClient) {}
 
   postEmployeeDetail(employeeDetail: any) {
-    return this.http.post(
+    return this.http.post<Employee[]>(
       `http://localhost:3000/data`,
       employeeDetail
     );
   }
 
   getAllEmployeeDetails() {
-    return this.http.get(`http://localhost:3000/data`);
+    return this.http.get<Employee[]>(`http://localhost:3000/data`);
   }
 
   getTableColumn() {
-    return this.http.get(`http://localhost:3000/column`);
+    return this.http.get<Column[]>(`http://localhost:3000/column`);
   }
 
   searchData(data: any) {
     return this.http.get(`http://localhost:3000/data`).pipe(
-      map((res : any) => {
+      map((res: any) => {
         let filterData: any[] = [];
-        res.filter((d : any) =>
-          Object.values(d).filter((da : any) => {
+        res.filter((d: any) =>
+          Object.values(d).filter((da: any) => {
             da.toString().includes(data) ? filterData.push(d) : null;
           })
         );
@@ -43,4 +43,3 @@ export class EmployeeService {
   }
 }
 
-//(d.empId.toString().includes(data) ? d : null)

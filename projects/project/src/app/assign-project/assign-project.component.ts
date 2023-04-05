@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Data, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subject } from 'rxjs';
 import { ProjectServiceService } from '../../service/project-service.service';
@@ -14,7 +14,7 @@ export class AssignProjectComponent implements OnInit {
   employee!: any;
   project!: any;
   constructor(
-    private store: Store<Data>,
+    private store: Store<any>,
     public fb: FormBuilder,
     private projectService: ProjectServiceService,
     private route : Router

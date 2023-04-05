@@ -44,24 +44,6 @@
       "mobile": 6383638047,
       "address": "SouthKorea",
       "id": 5
-    },
-    {
-      "empId": "9876",
-      "firstName": "Nithiya",
-      "lastName": "Mani",
-      "email": "nithiya@gmail.com",
-      "mobile": 9876543210,
-      "address": "xxxxxx",
-      "id": 6
-    },
-    {
-      "empId": "9876",
-      "firstName": "Nithiya",
-      "lastName": "Mani",
-      "email": "nithiya@gmail.com",
-      "mobile": 9876543210,
-      "address": "xxxxxx",
-      "id": 7
     }
   ],
   "project": [
@@ -76,6 +58,12 @@
       "projectName": "Java",
       "description": "Java is used as the server-side language for most back-end development projects, including those involving big data and Android development",
       "id": 2
+    },
+    {
+      "projectId": "CFE7777",
+      "projectName": "Angular",
+      "description": "Angular is an application-design framework and development platform for creating efficient and sophisticated single-page apps.",
+      "id": 3
     }
   ],
   "column": [
@@ -116,19 +104,9 @@
       "id": 2
     },
     {
-      "empId": "9876",
-      "projectId": "MFE9876",
-      "id": 3
-    },
-    {
       "empId": "9874",
       "projectId": "AGM6565",
       "id": 4
-    },
-    {
-      "empId": "9874",
-      "projectId": "AGM6565",
-      "id": 5
     },
     {
       "empId": "8765",
@@ -139,6 +117,16 @@
       "empId": "9876",
       "projectId": "MFE9876",
       "id": 7
+    },
+    {
+      "empId": "8765",
+      "projectId": "MFE9876",
+      "id": 8
+    },
+    {
+      "empId": "1997",
+      "projectId": "CFE7777",
+      "id": 9
     }
   ]
 }

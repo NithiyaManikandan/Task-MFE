@@ -1,6 +1,6 @@
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { TestBed } from '@angular/core/testing';
-import { mockResponse ,columnResponse} from './response';
+import { mockResponse ,columnResponse} from '../../../../response';
 import { EmployeeService } from './employee.service';
 import { of } from 'rxjs';
 describe('EmployeeService', () => {

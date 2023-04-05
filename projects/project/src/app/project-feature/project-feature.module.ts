@@ -1,7 +1,7 @@
 import { isDevMode, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProjectFeatureRoutingModule } from './project-feature-routing.module';
-import { postReducer } from "../../../../Ngrx/state/employee.reducer";
+import { postReducer } from "../../../Ngrx/state/reducer";
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 @NgModule({

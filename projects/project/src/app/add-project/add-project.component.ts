@@ -32,8 +32,7 @@ export class AddProjectComponent implements OnInit {
       description: new FormControl('', [Validators.required]),
     });
   }
-  submitForm(form: FormGroup) {
+  submitForm() {
     this.projectService.postProjectData(this.projectForm.value).subscribe();
-    form.reset();
   }
 }

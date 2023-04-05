@@ -1,6 +1,6 @@
 import { createReducer, on } from '@ngrx/store';
-import { addPost} from './employee.action';
-import { initialState } from './employee.state';
+import { addPost} from './action';
+import { initialState } from './state';
 
 const _postReducer = createReducer(
   initialState,

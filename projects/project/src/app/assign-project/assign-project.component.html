@@ -13,8 +13,12 @@
                 <div class="form-outline">
                   <label class="form-label" for="address">Employee ID</label
                   ><br />
-                  <select class="form-control" formControlName="empId" id="orders">
-                    <option  value="select" selected="">choose option</option>
+                  <select
+                    class="form-control"
+                    formControlName="empId"
+                    id="orders"
+                  >
+                    <option value="select" selected="">choose option</option>
                     <option *ngFor="let data of employee; let i = index">
                       {{ data.empId }}
                     </option>
@@ -35,7 +39,11 @@
                 <div class="form-outline">
                   <label class="form-label" for="address">Project ID</label
                   ><br />
-                  <select class="form-control" formControlName="projectId" id="orders">
+                  <select
+                    class="form-control"
+                    formControlName="projectId"
+                    id="orders"
+                  >
                     <option>choose option</option>
                     <option *ngFor="let data of project; let i = index">
                       {{ data.projectId }}
@@ -54,7 +62,11 @@
                 </div> -->
               </div>
               <div class="mt-4 pt-2">
-                <button type="submit" class="btn" [disabled]="ProjectForm.invalid">
+                <button
+                  type="submit"
+                  class="btn"
+                  [disabled]="ProjectForm.invalid"
+                >
                   Add
                 </button>
               </div>

@@ -4,7 +4,7 @@ import { ProjectServiceService } from '../../service/project-service.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AppRoutingModule } from '../app-routing.module';
 import { AssignProjectComponent } from './assign-project.component';
-import { Data } from '../../../Ngrx/state/state';
+import { Data } from '../../../../demo/src/Ngrx/state/state';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { Router } from '@angular/router';
 import { StoreModule } from '@ngrx/store';

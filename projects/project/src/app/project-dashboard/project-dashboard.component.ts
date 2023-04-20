@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { EmployeeService } from 'projects/employee/src/app/service/employee.service';
-import { Data } from  '../../../Ngrx/state/state'
+import { Data } from '../../../../demo/src/Ngrx/state/state';
 import { ProjectServiceService } from '../../service/project-service.service';
 import { forkJoin, map } from 'rxjs';
-import { addPost } from '../../../Ngrx/state/action';
+import { addPost } from '../../../../demo/src/Ngrx/state/action';
 @Component({
   selector: 'app-project-dashboard',
   templateUrl: './project-dashboard.component.html',
@@ -13,6 +13,7 @@ import { addPost } from '../../../Ngrx/state/action';
 export class ProjectDashboardComponent {
   addProjectOption: boolean = false;
   assignProjectOption: boolean = false;
+  result: any[] = [];
 
   constructor(
     private store: Store<Data>,
@@ -24,7 +25,6 @@ export class ProjectDashboardComponent {
     this.assignProjectOption = false;
   }
   assignProject() {
-    let result: any[] = [];
     forkJoin({
       employee: this.employeeService.getAllEmployeeDetails(),
       project: this.projectService.getAllProject(),
@@ -33,13 +33,14 @@ export class ProjectDashboardComponent {
         map((response) => {
           const employee = <Array<any>>response.employee;
           const project = <Array<any>>response.project;
-          result = [{ employee: { ...employee } }, { project: { ...project } }];
+          this.result = [
+            { employee: { ...employee } },
+            { project: { ...project } },
+          ];
+          this.assignProjectOption = true;
+          this.addProjectOption = false;
         })
       )
-      .subscribe(() => {
-        this.store.dispatch(addPost({ data: result }));
-        this.assignProjectOption = true;
-        this.addProjectOption = false;
-      });
+      .subscribe(() => {});
   }
 }

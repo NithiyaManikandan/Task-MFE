@@ -3,7 +3,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { EmployeeService } from 'projects/employee/src/app/service/employee.service';
 import { of } from 'rxjs';
-import { Data } from '../../../Ngrx/state/state';
+import { Data } from '../../../../demo/src/Ngrx/state/state';
 import { ProjectServiceService } from '../../service/project-service.service';
 import { ProjectDashboardComponent } from './project-dashboard.component';
 

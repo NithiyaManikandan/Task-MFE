@@ -1,17 +1,19 @@
 import { NgModule, isDevMode } from '@angular/core';
-import { CommonModule } from '@angular/common';
-
-import { EmployeeFeatureRoutingModule } from './employee-feature-routing.module';
+import { DemoComponent } from './demo.component';
 import { StoreModule } from '@ngrx/store';
 import { postReducer } from 'projects/demo/src/Ngrx/state/reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 @NgModule({
-  declarations: [],
+  declarations: [
+    DemoComponent
+  ],
   imports: [
-    CommonModule,
-    EmployeeFeatureRoutingModule,
-    StoreModule.forRoot({ data: postReducer }),
+    StoreModule.forRoot({data : postReducer}),
     StoreDevtoolsModule.instrument({ logOnly: !isDevMode() }),
   ],
+  exports: [
+    DemoComponent
+  ]
 })
-export class EmployeeFeatureModule {}
+export class DemoModule { }

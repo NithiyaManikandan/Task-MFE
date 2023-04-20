@@ -8,25 +8,24 @@ import { ProjectDashboardComponent } from './project-dashboard/project-dashboard
 import { AssignProjectComponent } from './assign-project/assign-project.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { postReducer } from 'projects/project/Ngrx/state/reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { StoreModule } from '@ngrx/store';
+import { DemoModule } from "../../../demo/src/lib/demo.module";
 @NgModule({
-  declarations: [
-    AppComponent,
-    AddProjectComponent,
-    ProjectDashboardComponent,
-    AssignProjectComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    StoreModule.forRoot({data : postReducer}),
-    StoreDevtoolsModule.instrument({ logOnly: !isDevMode() }),
-  ],
-  providers: [],
-  bootstrap: [AppComponent],
+    declarations: [
+        AppComponent,
+        AddProjectComponent,
+        ProjectDashboardComponent,
+        AssignProjectComponent,
+    ],
+    providers: [],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        DemoModule
+    ]
 })
 export class AppModule {}

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Column, Employee } from '../../../../project/Ngrx/models/model';
+import { Column, Employee } from '../../../../demo/src/Ngrx/models/model';
 import { map } from 'rxjs';
 
 @Injectable({

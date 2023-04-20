@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { Employee } from 'projects/project/Ngrx/models/model';
-import { Observable, Subject } from 'rxjs';
 import { ProjectServiceService } from '../../service/project-service.service';
 @Component({
   selector: 'app-assign-project',
@@ -26,11 +24,14 @@ export class AssignProjectComponent implements OnInit {
   });
   ngOnInit(): void {
     this.store.select('data').subscribe((res) => {
-      this.employee = Object.values(res.data[0].employee);
-      this.project = Object.values(res.data[1].project);
+      console.log(res);
+      this.dataValue = res.data;
+      if (this.dataValue.length != 0) {
+        this.employee = Object.values(this.dataValue[0].employee);
+        this.project = Object.values(this.dataValue[1].project);
+      }
     });
   }
-
   onSubmit() {
     this.projectService.postAssignedProject(this.ProjectForm.value).subscribe();
     this.route.navigateByUrl('');

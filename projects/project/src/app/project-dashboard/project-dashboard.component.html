@@ -11,3 +11,5 @@
 <app-assign-project
   *ngIf="assignProjectOption && !addProjectOption"
 ></app-assign-project>
+
+<lib-demo *ngIf="assignProjectOption && !addProjectOption" [data]="result"></lib-demo>

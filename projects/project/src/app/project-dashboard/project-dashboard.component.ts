@@ -4,7 +4,6 @@ import { EmployeeService } from 'projects/employee/src/app/service/employee.serv
 import { Data } from '../../../../demo/src/Ngrx/state/state';
 import { ProjectServiceService } from '../../service/project-service.service';
 import { forkJoin, map } from 'rxjs';
-import { addPost } from '../../../../demo/src/Ngrx/state/action';
 @Component({
   selector: 'app-project-dashboard',
   templateUrl: './project-dashboard.component.html',

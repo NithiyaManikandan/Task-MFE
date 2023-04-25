@@ -7,6 +7,7 @@ import { of } from 'rxjs';
 import { TableComponent } from './table.component';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
+import { DemoModule } from "../../../../demo/src/public-api"
 
 
 describe('EmployeeTableComponent', () => {
@@ -37,6 +38,7 @@ describe('EmployeeTableComponent', () => {
         HttpClientModule,
         TableModule,
         FormsModule,
+        DemoModule
       ],
       providers: [{ provide: EmployeeService, useValue: employeeServiceMock }],
     }).compileComponents();

@@ -44,6 +44,15 @@
       "mobile": 6383638047,
       "address": "SouthKorea",
       "id": 5
+    },
+    {
+      "empId": "7869",
+      "firstName": "Kamalji",
+      "lastName": "Kamal",
+      "email": "kamalji@gmail.com",
+      "mobile": 7896543219,
+      "address": "bhsbhdcdch",
+      "id": 6
     }
   ],
   "project": [
@@ -127,6 +136,11 @@
       "empId": "1997",
       "projectId": "CFE7777",
       "id": 9
+    },
+    {
+      "empId": "9876",
+      "projectId": "CFE7777",
+      "id": 10
     }
   ]
 }

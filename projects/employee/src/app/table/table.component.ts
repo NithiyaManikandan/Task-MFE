@@ -11,6 +11,7 @@ export class TableComponent implements OnInit {
   col: Column[] = [];
   data: Employee[] = [];
   selectedItem: boolean = false;
+  getData: boolean = false;
   searchText: any;
   constructor(
     private employeeService: EmployeeService,
@@ -18,14 +19,19 @@ export class TableComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.store.select('data').subscribe((res) => {
-      console.log(res);
-    });
+
     this.employeeService.getAllEmployeeDetails().subscribe((res) => {
       this.data = res as Employee[];
+      if (this.data) {
+        this.getData = true;
+      }
     });
+
     this.employeeService.getTableColumn().subscribe((res) => {
       this.col = res;
+    });
+    this.store.select('data').subscribe((res) => {
+      console.log(res);
     });
   }
 

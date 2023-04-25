@@ -7,9 +7,8 @@ import { AssignProjectComponent } from './assign-project.component';
 import { Data } from '../../../../demo/src/Ngrx/state/state';
 import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { Router } from '@angular/router';
-import { StoreModule } from '@ngrx/store';
-import { data } from 'projects/response';
 import { of } from 'rxjs';
+import { DemoModule } from "../../../../demo/src/lib/demo.module";
 describe('AssignProjectComponent', () => {
   let component: AssignProjectComponent;
   let fixture: ComponentFixture<AssignProjectComponent>;
@@ -38,6 +37,7 @@ describe('AssignProjectComponent', () => {
         ReactiveFormsModule,
         HttpClientTestingModule,
         AppRoutingModule,
+        DemoModule
       ],
     }).compileComponents();
 

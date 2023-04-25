@@ -9,7 +9,6 @@ import { ProjectServiceService } from '../../service/project-service.service';
   styleUrls: ['./assign-project.component.scss'],
 })
 export class AssignProjectComponent implements OnInit {
-  dataValue!: any;
   employee!: any;
   project!: any;
   constructor(
@@ -24,12 +23,8 @@ export class AssignProjectComponent implements OnInit {
   });
   ngOnInit(): void {
     this.store.select('data').subscribe((res) => {
-      console.log(res);
-      this.dataValue = res.data;
-      if (this.dataValue.length != 0) {
-        this.employee = Object.values(this.dataValue[0].employee);
-        this.project = Object.values(this.dataValue[1].project);
-      }
+      this.employee = Object.values(res.data[0].employee);
+      this.project = Object.values(res.data[1].project);
     });
   }
   onSubmit() {

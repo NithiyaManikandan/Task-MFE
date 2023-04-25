@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { EmployeeService } from '../service/employee.service';
+import { Store } from '@ngrx/store';
 
 @Component({
   selector: 'app-form',
@@ -16,7 +17,8 @@ export class FormComponent implements OnInit {
   employeeForm!: FormGroup;
   constructor(
     private employeeService: EmployeeService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private store: Store<any>
   ) {}
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
@@ -51,7 +53,8 @@ export class FormComponent implements OnInit {
   }
 
   submitForm() {
-    this.employeeService.postEmployeeDetail(this.employeeForm.value)
+    this.employeeService
+      .postEmployeeDetail(this.employeeForm.value)
       .subscribe();
   }
 }

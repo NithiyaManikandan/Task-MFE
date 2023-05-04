@@ -78,7 +78,7 @@
   "column": [
     {
       "field": "empId",
-      "label": "Employee ID"
+      "label": "Employee Id"
     },
     {
       "field": "firstName",

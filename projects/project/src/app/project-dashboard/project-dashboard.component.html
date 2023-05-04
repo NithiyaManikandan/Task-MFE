@@ -1,8 +1,9 @@
 <div class="container py-5 h-100">
-  <button type="button" class="btn" (click)="addProject()">Project</button
+  <button type="button" class="btn" (click)="addProject()">
+    {{ "project" | translate }}</button
   >&nbsp;
   <button type="button" class="btn" (click)="assignProject()">
-    Assign Project
+    {{ "Assign Project" | translate }}
   </button>
 </div>
 <app-add-project
@@ -12,4 +13,4 @@
   *ngIf="assignProjectOption && !addProjectOption"
 ></app-assign-project>
 
-<lib-demo *ngIf="assignProjectOption && !addProjectOption" [data]="result"></lib-demo>
+<!-- <lib-demo *ngIf="assignProjectOption && !addProjectOption" [data]="result"></lib-demo> -->

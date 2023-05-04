@@ -7,18 +7,19 @@
           style="border-radius: 15px"
         >
           <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Add Project</h3>
-            <form
-              [formGroup]="projectForm"
-              (ngSubmit)="submitForm()"
-            >
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">
+              {{ "Add Project" | translate }}
+            </h3>
+            <form [formGroup]="projectForm" (ngSubmit)="submitForm()">
               <div class="row">
                 <div class="col-m-6 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="projectId">Project Id</label>
+                    <label class="form-label" for="projectId">{{
+                      "Project Id" | translate
+                    }}</label>
                     <input
                       type="text"
-                      placeholder="Enter Employee Id"
+                      placeholder="{{ 'Enter Project Id' | translate }}"
                       formControlName="projectId"
                       class="form-control"
                       name="projectId"
@@ -34,18 +35,18 @@
                     <span
                       class="text-danger"
                       *ngIf="projectForm.controls['projectId'].errors"
-                      >Enter Project Id (eg:MFE9876)</span
+                      >{{ "Enter Project Id (eg:MFE9876)" | translate }}</span
                     >
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="projectName"
-                      >ProjectName Name</label
-                    >
+                    <label class="form-label" for="projectName">{{
+                      "ProjectName" | translate
+                    }}</label>
                     <input
                       type="text"
-                      placeholder="Enter projectName"
+                      placeholder="{{ 'Enter projectName' | translate }}"
                       formControlName="projectName"
                       class="form-control"
                       name="projectName"
@@ -62,7 +63,9 @@
                     <span
                       class="text-danger"
                       *ngIf="projectForm.controls['projectName'].errors"
-                      >Enter Project Name (eg:MicroFrontEnd)</span
+                      >{{
+                        "Enter Project Name (eg:MicroFrontEnd)" | translate
+                      }}</span
                     >
                   </div>
                 </div>
@@ -70,8 +73,9 @@
               <div class="row">
                 <div class="col-md-6 mb-4 pb-2">
                   <div class="form-outline">
-                    <label class="form-label" for="description"
-                      >Description</label
+                    <label class="form-label" for="description">{{
+                      "Description" | translate
+                    }}</label
                     ><br />
                     <textarea
                       cols="64"
@@ -88,7 +92,7 @@
                         projectForm.controls['description'].touched)
                     "
                   >
-                    Enter Project Description
+                    {{ "Enter Project Description" | translate }}
                   </div>
                 </div>
               </div>
@@ -98,7 +102,7 @@
                   class="btn"
                   [disabled]="projectForm.invalid"
                 >
-                  Add
+                  {{ "Add" | translate }}
                 </button>
               </div>
             </form>

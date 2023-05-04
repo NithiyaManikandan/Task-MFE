@@ -4,6 +4,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { of } from 'rxjs';
 import { ProjectServiceService } from '../../service/project-service.service';
 import { AddProjectComponent } from './add-project.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('AddProjectComponent', () => {
   let component: AddProjectComponent;
@@ -20,7 +21,7 @@ describe('AddProjectComponent', () => {
     await TestBed.configureTestingModule({
       declarations: [AddProjectComponent],
       providers: [{ provide: ProjectServiceService, useValue: projectService }],
-      imports: [ReactiveFormsModule, HttpClientModule],
+      imports: [ReactiveFormsModule, HttpClientModule, TranslateModule.forRoot(),],
     }).compileComponents();
 
     httpClientSpy = TestBed.inject(HttpClient) as jasmine.SpyObj<HttpClient>;

@@ -8,11 +8,9 @@ import { addDetail, addPost } from 'projects/demo/src/Ngrx/state/action';
   styles: [],
 })
 export class DemoComponent implements OnInit {
-  @Input() data: any;
-  @Input() employeeDetail: any;
+  // @Input() data: any;
   constructor(private store: Store<any>) {}
   ngOnInit(): void {
-    this.store.dispatch(addPost({ data: this.data }));
-    this.store.dispatch(addDetail({ detail: this.employeeDetail }));
+    // this.store.dispatch(addPost({ data: this.data }));
   }
 }

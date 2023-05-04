@@ -6,6 +6,7 @@ import { of } from 'rxjs';
 import { Data } from '../../../../demo/src/Ngrx/state/state';
 import { ProjectServiceService } from '../../service/project-service.service';
 import { ProjectDashboardComponent } from './project-dashboard.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('ProjectDashboardComponent', () => {
   let component: ProjectDashboardComponent;
@@ -31,7 +32,7 @@ describe('ProjectDashboardComponent', () => {
 
     await TestBed.configureTestingModule({
       declarations: [ProjectDashboardComponent],
-      imports: [HttpClientTestingModule],
+      imports: [HttpClientTestingModule, TranslateModule.forRoot(),],
       providers: [
         provideMockStore({ initialState }),
         { provide: EmployeeService, useValue: mockEmployeeService },

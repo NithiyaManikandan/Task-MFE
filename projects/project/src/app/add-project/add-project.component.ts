@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { ProjectServiceService } from '../../service/project-service.service';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-add-project',
   templateUrl: './add-project.component.html',
@@ -16,7 +16,8 @@ export class AddProjectComponent implements OnInit {
   projectForm!: FormGroup;
   constructor(
     private projectService: ProjectServiceService,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private translateService: TranslateService
   ) {}
   ngOnInit(): void {
     this.projectForm = this.fb.group({
@@ -31,6 +32,9 @@ export class AddProjectComponent implements OnInit {
       ]),
       description: new FormControl('', [Validators.required]),
     });
+
+    this.translateService.setDefaultLang('en');
+    this.translateService.use(localStorage.getItem('lang') || 'en');
   }
   submitForm() {
     this.projectService.postProjectData(this.projectForm.value).subscribe();

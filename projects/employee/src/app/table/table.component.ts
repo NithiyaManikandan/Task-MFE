@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Column, Employee } from '../../../../demo/src/Ngrx/models/model';
 import { EmployeeService } from '../service/employee.service';
 import { Store } from '@ngrx/store';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
@@ -15,10 +16,13 @@ export class TableComponent implements OnInit {
   searchText: any;
   constructor(
     private employeeService: EmployeeService,
-    private store: Store<any>
+    private store: Store<any>,
+    private translateService: TranslateService
   ) {}
 
   ngOnInit() {
+    this.translateService.setDefaultLang('en');
+    this.translateService.use(localStorage.getItem('lang') || 'en');
 
     this.employeeService.getAllEmployeeDetails().subscribe((res) => {
       this.data = res as Employee[];
@@ -26,12 +30,8 @@ export class TableComponent implements OnInit {
         this.getData = true;
       }
     });
-
     this.employeeService.getTableColumn().subscribe((res) => {
       this.col = res;
-    });
-    this.store.select('data').subscribe((res) => {
-      console.log(res);
     });
   }
 

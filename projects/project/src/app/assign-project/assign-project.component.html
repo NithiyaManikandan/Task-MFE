@@ -8,17 +8,23 @@
         >
           <div class="card-body p-4 p-md-5">
             <form [formGroup]="ProjectForm" (ngSubmit)="onSubmit()">
-              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Assign Project</h3>
+              <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">
+                {{ "Assign Project" | translate }}
+              </h3>
               <div class="col-md-6 mb-4 pb-2">
                 <div class="form-outline">
-                  <label class="form-label" for="address">Employee ID</label
+                  <label class="form-label" for="address">{{
+                    "Employee Id" | translate
+                  }}</label
                   ><br />
                   <select
                     class="form-control"
                     formControlName="empId"
                     id="orders"
                   >
-                    <option value="select" selected="">choose option</option>
+                    <option value="select" selected="">
+                      {{ "choose option" | translate }}
+                    </option>
                     <option *ngFor="let data of employee; let i = index">
                       {{ data.empId }}
                     </option>
@@ -37,14 +43,16 @@
               </div>
               <div class="col-md-6 mb-4 pb-2">
                 <div class="form-outline">
-                  <label class="form-label" for="address">Project ID</label
+                  <label class="form-label" for="address">{{
+                    "Project Id" | translate
+                  }}</label
                   ><br />
                   <select
                     class="form-control"
                     formControlName="projectId"
                     id="orders"
                   >
-                    <option>choose option</option>
+                    <option>{{ "choose option" | translate }}</option>
                     <option *ngFor="let data of project; let i = index">
                       {{ data.projectId }}
                     </option>

@@ -8,6 +8,7 @@ import { TableComponent } from './table.component';
 import { TableModule } from 'primeng/table';
 import { FormsModule } from '@angular/forms';
 import { DemoModule } from "../../../../demo/src/public-api"
+import { TranslateModule } from '@ngx-translate/core';
 
 
 describe('EmployeeTableComponent', () => {
@@ -38,7 +39,8 @@ describe('EmployeeTableComponent', () => {
         HttpClientModule,
         TableModule,
         FormsModule,
-        DemoModule
+        DemoModule,
+        TranslateModule.forRoot(),
       ],
       providers: [{ provide: EmployeeService, useValue: employeeServiceMock }],
     }).compileComponents();

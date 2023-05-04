@@ -6,8 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { EmployeeService } from '../service/employee.service';
-import { Store } from '@ngrx/store';
-
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -15,10 +14,11 @@ import { Store } from '@ngrx/store';
 })
 export class FormComponent implements OnInit {
   employeeForm!: FormGroup;
+  lang: string | undefined;
   constructor(
     private employeeService: EmployeeService,
     private fb: FormBuilder,
-    private store: Store<any>
+    private translateService: TranslateService
   ) {}
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
@@ -50,6 +50,8 @@ export class FormComponent implements OnInit {
         Validators.pattern('^[A-Za-zd]{4,}$'),
       ]),
     });
+    this.translateService.setDefaultLang('en');
+    this.translateService.use(localStorage.getItem('lang') || 'en');
   }
 
   submitForm() {

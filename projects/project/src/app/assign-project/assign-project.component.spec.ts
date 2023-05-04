@@ -9,6 +9,7 @@ import { provideMockStore, MockStore } from '@ngrx/store/testing';
 import { Router } from '@angular/router';
 import { of } from 'rxjs';
 import { DemoModule } from "../../../../demo/src/lib/demo.module";
+import { TranslateModule } from '@ngx-translate/core';
 describe('AssignProjectComponent', () => {
   let component: AssignProjectComponent;
   let fixture: ComponentFixture<AssignProjectComponent>;
@@ -37,7 +38,8 @@ describe('AssignProjectComponent', () => {
         ReactiveFormsModule,
         HttpClientTestingModule,
         AppRoutingModule,
-        DemoModule
+        DemoModule,
+        TranslateModule.forRoot(),
       ],
     }).compileComponents();
 

@@ -7,18 +7,19 @@
           style="border-radius: 15px"
         >
           <div class="card-body p-4 p-md-5">
-            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">Employee Form</h3>
-            <form
-              [formGroup]="employeeForm"
-              (ngSubmit)="submitForm()"
-            >
+            <h3 class="mb-4 pb-2 pb-md-0 mb-md-5">
+              {{ "Employee Form" | translate }}
+            </h3>
+            <form [formGroup]="employeeForm" (ngSubmit)="submitForm()">
               <div class="row">
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="empId">Employee Id</label>
+                    <label class="form-label" for="empId">{{
+                      "Employee Id" | translate
+                    }}</label>
                     <input
                       type="text"
-                      placeholder="Enter Employee Id"
+                      placeholder="{{ 'Enter Employee Id' | translate }}"
                       formControlName="empId"
                       class="form-control"
                       name="empId"
@@ -34,16 +35,18 @@
                     <span
                       class="text-danger"
                       *ngIf="employeeForm.controls['empId'].errors"
-                      >Enter Employee Id (eg:9876)</span
+                      >{{ "Enter Employee Id (eg:9876)" | translate }}</span
                     >
                   </div>
                 </div>
                 <div class="col-md-6 mb-4">
                   <div class="form-outline">
-                    <label class="form-label" for="firstName">First Name</label>
+                    <label class="form-label" for="firstName">{{
+                      "FirstName" | translate
+                    }}</label>
                     <input
                       type="text"
-                      placeholder="Enter username"
+                      placeholder="{{ 'Enter firstName' | translate }}"
                       formControlName="firstName"
                       class="form-control"
                       name="firstName"
@@ -60,7 +63,9 @@
                     <span
                       class="text-danger"
                       *ngIf="employeeForm.controls['firstName'].errors"
-                      >Enter Employee FirstName (eg:Nithiya)</span
+                      >{{
+                        "Enter Employee FirstName (eg:Nithiya)" | translate
+                      }}</span
                     >
                   </div>
                 </div>
@@ -68,11 +73,13 @@
               <div class="row">
                 <div class="col-md-6 mb-4 pb-2">
                   <div class="form-outline">
-                    <label class="form-label" for="lastName">Last Name</label
+                    <label class="form-label" for="lastName">{{
+                      "LastName" | translate
+                    }}</label
                     ><br />
                     <input
                       type="text"
-                      placeholder="Enter username"
+                      placeholder="{{ 'Enter lastName' | translate }}"
                       formControlName="lastName"
                       class="form-control"
                       name="lastName"
@@ -89,16 +96,20 @@
                     <span
                       class="text-danger"
                       *ngIf="employeeForm.controls['lastName'].errors"
-                      >Enter Employee LastName (eg:Mani)</span
+                      >{{
+                        "Enter Employee LastName (eg:Mani)" | translate
+                      }}</span
                     >
                   </div>
                 </div>
                 <div class="col-md-6 mb-4 pb-2">
                   <div class="form-outline">
-                    <label class="form-label" for="mobile">Mobile</label>
+                    <label class="form-label" for="mobile">{{
+                      "Mobile" | translate
+                    }}</label>
                     <input
                       type="number"
-                      placeholder="Enter username"
+                      placeholder="{{ 'Enter mobile number' | translate }}"
                       formControlName="mobile"
                       class="form-control"
                       name="mobile"
@@ -115,16 +126,21 @@
                     <span
                       class="text-danger"
                       *ngIf="employeeForm.controls['mobile'].errors"
-                      >Enter Mobile Number (eg:9876543210)</span
+                      >{{
+                        "Enter Mobile Number (eg:9876543210)" | translate
+                      }}</span
                     >
                   </div>
                 </div>
                 <div class="col-md-6 mb-4 pb-2">
                   <div class="form-outline">
-                    <label class="form-label" for="email">Email</label><br />
+                    <label class="form-label" for="email">{{
+                      "Email" | translate
+                    }}</label
+                    ><br />
                     <input
                       type="email"
-                      placeholder="Enter username"
+                      placeholder="{{ 'Enter email' | translate }}"
                       formControlName="email"
                       class="form-control"
                       name="email"
@@ -141,17 +157,21 @@
                     <span
                       class="text-danger"
                       *ngIf="employeeForm.controls['email'].errors"
-                      >Enter Email (eg:nithiya@gmail.com)</span
+                      >{{
+                        "Enter Email (eg:nithiya@gmail.com)" | translate
+                      }}</span
                     >
                   </div>
                 </div>
                 <div class="col-md-6 mb-4 pb-2">
                   <div class="form-outline">
-                    <label class="form-label" for="address">Address</label
+                    <label class="form-label" for="address">{{
+                      "Address" | translate
+                    }}</label
                     ><br />
                     <input
                       type="text"
-                      placeholder="Enter username"
+                      placeholder="{{ 'Enter address' | translate }}"
                       formControlName="address"
                       class="form-control"
                       name="address"
@@ -168,7 +188,7 @@
                     <span
                       class="text-danger"
                       *ngIf="employeeForm.controls['address'].errors"
-                      >Enter Address (eg:xxxxx)</span
+                      >{{ "Enter Address (eg:xxxxx)" | translate }}</span
                     >
                   </div>
                 </div>
@@ -180,7 +200,7 @@
                     class="btn"
                     [disabled]="employeeForm.invalid"
                   >
-                    submit
+                    {{ "submit" | translate }}
                   </button>
                 </div>
               </div>

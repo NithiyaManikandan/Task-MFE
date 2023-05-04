@@ -5,6 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { EmployeeService } from '../service/employee.service';
 import { Observable, of } from 'rxjs';
 import { FormComponent } from './form.component';
+import { TranslateModule } from '@ngx-translate/core';
 
 describe('FormComponent', () => {
   let component: FormComponent;
@@ -17,7 +18,7 @@ describe('FormComponent', () => {
     ]);
     await TestBed.configureTestingModule({
       declarations: [FormComponent],
-      imports: [HttpClientTestingModule, ReactiveFormsModule],
+      imports: [HttpClientTestingModule, ReactiveFormsModule, TranslateModule.forRoot(),],
       providers: [{ provide: EmployeeService, useValue: employeeServiceSpy }],
     }).compileComponents();
 
